@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geeks Gala 3.0</title>
+
+  <!-- ✅ Correct CSS path -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="../assets/geeksgala.png" alt="Geeks Gala Logo" class="main-logo">
+    <h1>Geeks Gala 3.0</h1>
+    <p>Where logic meets fun</p>
+  </header>
+<!-- ABOUT GEEKS GALA -->
+<section>
+  <div class="event-container">
+    <h2>About Geeks Gala 3.0</h2>
+
+    <p>
+      <strong>Geeks Gala 3.0</strong> is the annual technical fest organized by the
+      <strong>Computer Science Department</strong> of
+      <strong>K.V. Pendharkar College</strong>.
+      It is a celebration of technology, creativity, logic, and fun.
+    </p>
+
+    <p>
+      The event brings together students from various colleges to compete,
+      collaborate, and showcase their skills across a wide range of
+      technical and gaming events.
+      From mind-bending quizzes and hackathons to intense esports battles,
+      Geeks Gala offers something for every tech enthusiast.
+    </p>
+
+    <p>
+      With exciting challenges, innovative formats, and a vibrant competitive
+      atmosphere, <strong>Geeks Gala 3.0</strong> aims to inspire learning,
+      teamwork, and innovation beyond classrooms.
+    </p>
+  </div>
+</section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2>Events</h2>
+
+    <div class="grid">
+
+      <a href="events/quiz.html" class="card">
+        <img src="../assets/quiz.png" alt="Quiz">
+        <span>Twisted Quiz</span>
+      </a>
+
+      <a href="events/hackathon.html" class="card">
+        <img src="../assets/hackathone.png" alt="Hackathon">
+        <span>Shadow Commit</span>
+      </a>
+
+      <a href="events/freefire.html" class="card">
+        <img src="../assets/freefire.png" alt="Free Fire">
+        <span>Booyah Bash</span>
+      </a>
+
+      <a href="events/fifa.html" class="card">
+        <img src="../assets/fifa.png" alt="FIFA">
+        <span>The 90th Minute ( FIFA )</span>
+      </a>
+
+      <a href="events/roblox.html" class="card">
+        <img src="../assets/roblox.png" alt="Roblox">
+        <span>Roblox Arena</span>
+      </a>
+
+      <a href="events/huntomania.html" class="card">
+        <img src="../assets/huntomania.png" alt="Hunt O Mania">
+        <span>Hunt O Mania</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+ <footer>
+  © 2025 Geeks Gala 3.0 | Computer Science Department <br>
+  <a href="https://kvpendharkarcollege.org/" target="_blank">
+    K.V. Pendharkar College Of Arts, Commerce & Science (Autonomous)
+  </a>
+</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * 8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform =
+        `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+</script>
+
+</body>
+</html>

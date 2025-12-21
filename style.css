@@ -1,0 +1,324 @@
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+  --bg-dark: #00040a; /* Deeper space black */
+  --bg-card: rgba(10, 25, 47, 0.4); /* Darker glass tint */
+  --neon-blue: #00f2ff; /* True neon cyan */
+  --neon-blue-soft: rgba(0, 242, 255, 0.15);
+  --text-main: #f0f9ff;
+  --text-muted: #94a3b8;
+  --border-glass: rgba(0, 242, 255, 0.25); /* Neon tinted border */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* ===============================
+   BODY - Space Theme Background
+================================ */
+body {
+  min-height: 100vh;
+  color: var(--text-main);
+  /* Added a "starfield" effect using multi-layered radial gradients */
+  background: 
+    radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0) 0 0 / 50px 50px,
+    radial-gradient(circle at 20% 10%, rgba(0, 242, 255, 0.1), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(112, 0, 255, 0.15), transparent 45%),
+    linear-gradient(180deg, #00040a, #020617);
+}
+
+/* ===============================
+   LINKS
+================================ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===============================
+   HEADER / HERO
+================================ */
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+header img {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+header h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.5); /* Glow */
+}
+
+header p {
+  margin-top: 8px;
+  color: var(--neon-blue);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px 80px;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+/* ===============================
+   EVENT GRID
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+}
+
+/* ===============================
+   EVENT CARD - Glossy/Neon Update
+================================ */
+.card {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-card);
+  border-radius: 22px;
+  border: 1px solid var(--border-glass);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+
+  /* Increased blur for better gloss effect */
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* Retained animations */
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease, background 0.35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  /* Glossy Reflection Highlight */
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+
+.card img {
+  width: 150px; 
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 26px;
+  filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.4));
+}
+
+.card span {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: var(--neon-blue-soft);
+  border-color: var(--neon-blue);
+  box-shadow:
+    0 0 35px rgba(0, 242, 255, 0.3),
+    inset 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+/* ===============================
+   EVENT PAGE CONTENT
+================================ */
+.event-container {
+  max-width: 850px;
+  margin: auto;
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 45px 35px;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.event-container h1 {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 2.4rem;
+  color: var(--neon-blue);
+}
+
+.event-container p {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.event-container ul {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.event-container li {
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: var(--neon-blue);
+  color: #00040a;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+.btn:hover {
+  background: #fff;
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--neon-blue);
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* ===============================
+   LOGO ANIMATION
+================================ */
+.main-logo {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.main-logo:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 25px var(--neon-blue));
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  header {
+    padding-top: 45px;
+  }
+}
+.back-btn {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+}
+
+.back-btn:hover {
+  background: var(--neon-blue);
+  color: #020617;
+}
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  background: rgba(2, 6, 23, 0.7);
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+  background: var(--neon-blue);
+  color: #020617;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+}
+/* ===============================
+   FIXED BACK BUTTON (USING .btn back-btn)
+================================ */
+.back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 9999;
+
+  background: rgba(2, 6, 23, 0.75);
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(12px);
+}
+
+/* Hover override (keeps btn style) */
+.back-btn:hover {
+  background: var(--neon-blue);
+  color: #020617;
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.6);
+}
+/* Hide scrollbar but keep scroll */
+html, body {
+  overflow-y: scroll;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE & Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
