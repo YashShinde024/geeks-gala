@@ -139,7 +139,7 @@ section h2 {
 
 /* Hover Effect */
 .card:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-6px) scale(2.03);
   background: var(--neon-blue-soft);
   border-color: var(--neon-blue);
   box-shadow:
