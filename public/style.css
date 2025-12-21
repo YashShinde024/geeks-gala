@@ -322,3 +322,32 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;                /* Chrome, Safari */
 }
+/* Fixed back button */
+.back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 9999;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: rgba(2, 6, 23, 0.75);
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(12px);
+  transition: 
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Hidden state */
+.back-btn.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}

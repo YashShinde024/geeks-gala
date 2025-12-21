@@ -65,8 +65,6 @@
         <li>The hackathon duration is strictly limited to <strong>3 hours</strong>.</li>
         <li>All teams will receive the <strong>same problem statement</strong>.</li>
         <li>Participants must strictly follow instructions given by the organizers.</li>
-        <li>Any role or information assigned during the event must remain confidential.</li>
-        <li>Discussion or disclosure of assigned roles will lead to immediate disqualification.</li>
         <li>Misconduct, arguments, or disruption will result in disqualification.</li>
         <li>Projects must be submitted before the deadline with a short explanation.</li>
         <li>Judging will be based on:
@@ -96,6 +94,18 @@
       K.V. Pendharkar College Of Arts, Commerce & Science (Autonomous)
     </a>
   </footer>
+
+  <script>
+  const backBtn = document.querySelector('.back-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      backBtn.classList.add('hide');
+    } else {
+      backBtn.classList.remove('hide');
+    }
+  });
+</script>
 
 </body>
 </html>

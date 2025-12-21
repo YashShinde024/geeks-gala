@@ -114,5 +114,17 @@
     </a>
   </footer>
 
+  <script>
+  const backBtn = document.querySelector('.back-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      backBtn.classList.add('hide');
+    } else {
+      backBtn.classList.remove('hide');
+    }
+  });
+</script>
+
 </body>
 </html>
