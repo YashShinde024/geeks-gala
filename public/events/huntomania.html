@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+
+<!-- Android / PWA -->
+<meta name="theme-color" content="#0f172a">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hunt O Mania | Geeks Gala 3.0</title>
@@ -19,7 +29,7 @@
   <!-- HEADER -->
   <header>
     <img src="../assets/huntomania.png" alt="Hunt O Mania Logo" class="main-logo">
-    <h1>Hunt-O-Mania - Treasure Hunt </h1>
+    <h1>Hunt-O-Mania – Treasure Hunt</h1>
     <p>Think fast. Hunt smart.</p>
   </header>
 
@@ -39,7 +49,7 @@
       <h2 style="margin-top:40px;">Rules & Regulations</h2>
 
       <ul>
-        <li>Participants may compete in teams ( Exactly of 2 members ), as specified by the organizers.</li>
+        <li>Participants may compete in teams (exactly <strong>2 members</strong>).</li>
         <li>Only the system assigned by the organizers must be used.</li>
         <li>All required files are preloaded; <strong>internet access is strictly prohibited</strong>.</li>
         <li>Participants must follow the sequence of pages and must not open files directly.</li>
@@ -93,13 +103,15 @@
         </li>
       </ul>
 
-      <!-- REGISTER BUTTON -->
+      <!-- REGISTER BUTTON WITH LOADING -->
       <div style="text-align:center; margin-top:40px;">
         <a
           href="https://forms.gle/AastY4nCtANMY3YM8"
           target="_blank"
-          class="btn">
-          Register Now
+          class="btn register-btn"
+          onclick="startLoading(this)">
+          <span class="btn-text">Register Now</span>
+          <span class="btn-loader"></span>
         </a>
       </div>
 
@@ -115,15 +127,37 @@
   </footer>
 
   <script>
-  const backBtn = document.querySelector('.back-btn');
+    const backBtn = document.querySelector('.back-btn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      backBtn.classList.add('hide');
-    } else {
-      backBtn.classList.remove('hide');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        backBtn.classList.add('hide');
+      } else {
+        backBtn.classList.remove('hide');
+      }
+    });
+
+    function startLoading(btn) {
+      btn.classList.add("loading");
+
+      setTimeout(() => {
+        window.location.href = btn.href;
+      }, 600);
+
+      return false;
     }
-  });
+  </script>
+<script>
+  (function () {
+    const path = window.location.pathname;
+
+    // Hide .html from URL bar (visual only)
+    if (path.endsWith(".html")) {
+      const cleanPath = path.replace(/index\.html$/, "")
+                            .replace(/\.html$/, "");
+      window.history.replaceState(null, "", cleanPath || "/");
+    }
+  })();
 </script>
 
 </body>

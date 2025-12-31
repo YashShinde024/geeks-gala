@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+
+<!-- Android / PWA -->
+<meta name="theme-color" content="#0f172a">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIFA Tournament | Geeks Gala 3.0</title>
@@ -19,7 +29,7 @@
   <!-- HEADER -->
   <header>
     <img src="../assets/fifa.png" alt="FIFA Tournament Logo" class="main-logo">
-    <h1>The 90th Minute - Fifa Event </h1>
+    <h1>The 90th Minute – FIFA Event</h1>
     <p>Play. Compete. Dominate.</p>
   </header>
 
@@ -33,14 +43,14 @@
       <ul>
         <li>
           <strong>Day 1 – Round 1:</strong>
-          80 teams (2 players per team) compete in direct elimination matches.
+          80 teams (2 players per team) compete in direct knockout matches.
           Teams are divided into two batches of 40 teams each.
-          Top 20 teams from each batch qualify for the next round.
+          Top 20 teams from each batch qualify.
         </li>
 
         <li>
           <strong>Day 1 – Round 2:</strong>
-          40 qualified teams compete in elimination matches.
+          40 qualified teams compete in knockout matches.
           Top 20 teams advance to Day 2.
         </li>
 
@@ -81,24 +91,34 @@
       <h2 style="margin-top:40px;">Rules & Regulations</h2>
 
       <ul>
-        <li>Each team must consist of exactly <strong>2 players</strong>.</li>
+        <li>The tournament will be played on <strong>PlayStation 5</strong> using the <strong>official FIFA / EA FC</strong> game.</li>
+        <li>Each team must consist of exactly <strong>2 players</strong>. Solo or mixed teams are not allowed.</li>
         <li>Maximum of <strong>80 teams</strong> will be allowed.</li>
-        <li>Entry fee is <strong>₹100 per team</strong>.</li>
-        <li>All matches will be played on the provided PlayStation setups.</li>
-        <li>Teams must report on time for their scheduled matches.</li>
-        <li>Any form of unfair play, misconduct, or rule violation will lead to disqualification.</li>
-        <li>Judges’ and organizers’ decisions are final and binding.</li>
+        <li><strong>Entry Fee:</strong> ₹200 per team (non-refundable).</li>
+        <li>Tournament format is <strong>knockout-based</strong>. Match schedule will be decided by the organizers.</li>
+        <li>Teams must report <strong>15 minutes before</strong> their scheduled match time.</li>
+        <li>Match settings will be <strong>fixed and standardized</strong> for all teams.</li>
+        <li>PlayStation consoles and controllers will be provided. <strong>Personal controllers are not allowed.</strong></li>
+        <li>Any damage to equipment will result in <strong>disqualification and penalty charges.</strong></li>
+        <li><strong>Fair play is mandatory.</strong> Abuse, cheating, or misconduct will result in immediate disqualification.</li>
+        <li>In case of a draw, the match will be decided by <strong>penalty shootouts.</strong></li>
+        <li>Technical issues will be resolved by the organizers. Their decision will be <strong>final and binding.</strong></li>
+        <li>Prizes will be awarded only to teams following all rules.</li>
+        <li>Organizers reserve the right to modify rules or schedules if required.</li>
       </ul>
 
-       <!-- REGISTER BUTTON (ADD LINK LATER) -->
+      <!-- REGISTER BUTTON WITH LOADING -->
       <div style="text-align:center; margin-top:40px;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6jvDGAMJsqBII-yP71fHAt7EgsRGojgKDqFcEJ7nY3yW94w/viewform?usp=dialog" class="btn">
-          Register Now
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf6jvDGAMJsqBII-yP71fHAt7EgsRGojgKDqFcEJ7nY3yW94w/viewform?usp=dialog"
+          class="btn register-btn"
+          onclick="startLoading(this)">
+          <span class="btn-text">Register Now</span>
+          <span class="btn-loader"></span>
         </a>
       </div>
 
     </div>
-    
   </section>
 
   <!-- FOOTER -->
@@ -110,15 +130,37 @@
   </footer>
 
   <script>
-  const backBtn = document.querySelector('.back-btn');
+    const backBtn = document.querySelector('.back-btn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      backBtn.classList.add('hide');
-    } else {
-      backBtn.classList.remove('hide');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        backBtn.classList.add('hide');
+      } else {
+        backBtn.classList.remove('hide');
+      }
+    });
+
+    function startLoading(btn) {
+      btn.classList.add("loading");
+
+      setTimeout(() => {
+        window.location.href = btn.href;
+      }, 600);
+
+      return false;
     }
-  });
+  </script>
+<script>
+  (function () {
+    const path = window.location.pathname;
+
+    // Hide .html from URL bar (visual only)
+    if (path.endsWith(".html")) {
+      const cleanPath = path.replace(/index\.html$/, "")
+                            .replace(/\.html$/, "");
+      window.history.replaceState(null, "", cleanPath || "/");
+    }
+  })();
 </script>
 
 </body>

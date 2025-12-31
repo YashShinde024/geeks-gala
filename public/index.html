@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+
+<!-- Android / PWA -->
+<meta name="theme-color" content="#0f172a">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Geeks Gala 3.0</title>
@@ -10,13 +20,53 @@
 </head>
 
 <body>
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-center">
+    <div class="loader-ring"></div>
+    <img src="assets/geeksgala.png" alt="Geeks Gala Logo" class="loader-logo">
+    <p class="loader-text">Loading Geeks Gala 3.0...</p>
+  </div>
+</div>
 
   <!-- HEADER -->
-  <header>
-    <img src="assets/geeksgala.png" alt="Geeks Gala Logo" class="main-logo">
-    <h1>Geeks Gala 3.0</h1>
-    <p>Where logic meets fun</p>
-  </header>
+  <header class="hero-header">
+  <div class="logo-wrapper">
+    <img src="assets/geeksgala.png" alt="Geeks Gala Logo" class="main-logo glow-pulse">
+
+    <!-- Animated Ring -->
+    <span class="logo-ring"></span>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <h1 class="hero-title reveal">Geeks Gala 3.0</h1>
+  <p class="hero-subtitle reveal delay">Where logic meets fun</p>
+
+  <!-- Animated Divider -->
+  <div class="hero-divider"></div>
+</header>
+<div class="insta-header">
+  <a
+    href="https://www.instagram.com/kvpc_computer_science?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+    target="_blank"
+    class="insta-header-link"
+    aria-label="Follow Geeks Gala on Instagram"
+  >
+    <span class="insta-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="3" width="18" height="18" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="insta-text">Follow @kvpc_computer_science</span>
+  </a>
+</div>
+
 <!-- ABOUT GEEKS GALA -->
 <section>
   <div class="event-container">
@@ -45,9 +95,27 @@
   </div>
 </section>
 
+<!-- SPONSORS -->
+<!-- SPONSOR SECTION -->
+<section class="glass">
+  <div class="event-container">
+    <h2>Our Sponsor</h2>
+    <p class="sponsor-line">
+  With the support of <strong>l2R2_rentals</strong>, making Geeks Gala 3.0 possible.
+</p>
+
+    <a href="https://www.l2r2.in/" target="_blank" class="sponsor-link">
+      <img src="assets/sponsor.png" alt="l2r2_rentals Logo" class="sponsor-logo">
+      <p class="sponsor-name">l2r2_rentals</p>
+    </a>
+  </div>
+</section>
+
+
+
   <!-- EVENTS -->
   <section>
-    <h2>Events</h2>
+    <h2>Our Events</h2>
 
     <div class="grid">
 
@@ -115,6 +183,26 @@
       card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
     });
   });
+</script>
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+      loader.classList.add("hide");
+    }, 800); // smooth cinematic delay
+  });
+</script>
+<script>
+  (function () {
+    const path = window.location.pathname;
+
+    // Hide .html from URL bar (visual only)
+    if (path.endsWith(".html")) {
+      const cleanPath = path.replace(/index\.html$/, "")
+                            .replace(/\.html$/, "");
+      window.history.replaceState(null, "", cleanPath || "/");
+    }
+  })();
 </script>
 
 </body>

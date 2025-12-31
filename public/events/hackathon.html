@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+
+<!-- Android / PWA -->
+<meta name="theme-color" content="#0f172a">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shadow Commit | Geeks Gala 3.0</title>
@@ -19,7 +29,7 @@
   <!-- HEADER -->
   <header>
     <img src="../assets/hackathone.png" alt="Shadow Commit Logo" class="main-logo">
-    <h1>Shadow Commit - Hackathon</h1>
+    <h1>Shadow Commit – Hackathon</h1>
     <p>Build. Break. Adapt.</p>
   </header>
 
@@ -33,27 +43,28 @@
         <strong>Geeks Gala 3.0</strong>.
         <br><br>
         Teams will work against the clock to design, build, and present a solution
-        to a common problem statement — with a twist introduced during the event
-        that will test adaptability, teamwork, and decision-making.
+        to a common problem statement. Dynamic in-event elements will be introduced
+        to test adaptability, teamwork, and decision-making skills.
       </p>
 
       <ul>
         <li><strong>Total Duration:</strong> 3 Hours</li>
         <li><strong>Team Size:</strong> Exactly 3 participants</li>
-        <li><strong>Mode:</strong> On-site (Computer Lab / Personal Laptops allowed)</li>
-        <li><strong>Total Slots:</strong> 30 Teams ( First Come, First Served ) </li>
+        <li><strong>Mode:</strong> On-site (Computer Lab)</li>
+        <li><strong>Systems:</strong> Fixed systems provided (Personal laptops allowed)</li>
+        <li><strong>Total Slots:</strong> 30 Teams (First Come, First Served)</li>
       </ul>
 
       <!-- PLAN OF ACTION -->
       <h2 style="margin-top:40px;">Plan of Action</h2>
 
       <ul>
-        <li>Participants report to the lab and occupy their assigned systems.</li>
-        <li>Organizers explain the problem statement, time limit, and general rules.</li>
-        <li>Teams begin coding once the hackathon starts.</li>
-        <li>A special in-event activity is introduced during the hackathon.</li>
-        <li>Teams continue development as per the instructions provided at that time.</li>
-        <li>At the end of 3 hours, teams submit their project for evaluation.</li>
+        <li>Participants report to the lab and occupy their assigned systems and seating.</li>
+        <li>Organizers explain the problem statement, time limits, and general rules.</li>
+        <li>The hackathon officially begins and teams start coding.</li>
+        <li>A special in-event activity or twist is introduced during the hackathon.</li>
+        <li>Teams continue development based on updated instructions.</li>
+        <li>At the end of 3 hours, teams submit their project.</li>
         <li>Final results are announced after judging.</li>
       </ul>
 
@@ -61,27 +72,35 @@
       <h2 style="margin-top:40px;">Rules & Regulations</h2>
 
       <ul>
-        <li>Each team must consist of <strong>exactly 3 members</strong>.</li>
-        <li>Teams may use assigned systems or bring their own laptops.</li>
+        <li>Each team must consist of <strong>exactly three (3) participants</strong>.</li>
+        <li>Teams will be allotted <strong>fixed systems and seating</strong>, which must not be changed during the event.</li>
+        <li>Teams may bring their <strong>own laptops</strong> if preferred.</li>
         <li>The hackathon duration is strictly limited to <strong>3 hours</strong>.</li>
-        <li>All teams will receive the <strong>same problem statement</strong>.</li>
-        <li>Participants must strictly follow instructions given by the organizers.</li>
-        <li>Misconduct, arguments, or disruption will result in disqualification.</li>
-        <li>Projects must be submitted before the deadline with a short explanation.</li>
-        <li>Judging will be based on:
+        <li>All teams will receive the <strong>same problem statement</strong> at the start of the event.</li>
+        <li>Participants must be prepared for <strong>dynamic in-event elements</strong> that may affect development.</li>
+        <li>Any instructions given by the <strong>organizing team must be followed immediately</strong>.</li>
+        <li><strong>Disruptive behaviour, arguments, or misconduct</strong> will lead to disqualification.</li>
+        <li><strong>Destructive actions</strong> such as deleting files, damaging systems, or intentionally breaking projects are strictly prohibited.</li>
+        <li><strong>External help, code copying, or communication with other teams</strong> is not allowed.</li>
+        <li>Teams must submit their project <strong>before the deadline</strong> and be ready for a <strong>short live demonstration</strong>.</li>
+        <li><strong>Judging Criteria:</strong>
           <ul>
             <li>UI & basic functionality</li>
-            <li>Presentation</li>
-            <li>A special judging element revealed during evaluation</li>
+            <li>Overall presentation</li>
+            <li>Special judging element (revealed during evaluation)</li>
           </ul>
         </li>
-        <li>Judges’ and organizing committee decisions are final and binding.</li>
+        <li>The decisions of the <strong>judges and organizing committee</strong> are final and binding.</li>
       </ul>
 
-      <!-- REGISTER BUTTON (ADD LINK LATER) -->
+      <!-- REGISTER BUTTON WITH LOADING -->
       <div style="text-align:center; margin-top:40px;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdp2SCjs0MPifRVeubxTsJiP49aWlCQulz-4CCNuRdaBIQ3Mg/viewform" class="btn">
-          Register Now
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdp2SCjs0MPifRVeubxTsJiP49aWlCQulz-4CCNuRdaBIQ3Mg/viewform"
+          class="btn register-btn"
+          onclick="startLoading(this)">
+          <span class="btn-text">Register Now</span>
+          <span class="btn-loader"></span>
         </a>
       </div>
 
@@ -97,15 +116,37 @@
   </footer>
 
   <script>
-  const backBtn = document.querySelector('.back-btn');
+    const backBtn = document.querySelector('.back-btn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      backBtn.classList.add('hide');
-    } else {
-      backBtn.classList.remove('hide');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        backBtn.classList.add('hide');
+      } else {
+        backBtn.classList.remove('hide');
+      }
+    });
+
+    function startLoading(btn) {
+      btn.classList.add("loading");
+
+      setTimeout(() => {
+        window.location.href = btn.href;
+      }, 600);
+
+      return false;
     }
-  });
+  </script>
+<script>
+  (function () {
+    const path = window.location.pathname;
+
+    // Hide .html from URL bar (visual only)
+    if (path.endsWith(".html")) {
+      const cleanPath = path.replace(/index\.html$/, "")
+                            .replace(/\.html$/, "");
+      window.history.replaceState(null, "", cleanPath || "/");
+    }
+  })();
 </script>
 
 </body>

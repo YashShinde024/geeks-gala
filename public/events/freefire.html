@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+
+<!-- Android / PWA -->
+<meta name="theme-color" content="#0f172a">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booyah Bash | Geeks Gala 3.0</title>
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="/style.css">
-
-
 </head>
 
 <body>
+
 <div style="text-align:center; margin-bottom: 25px;">
   <a href="../index.html" class="btn back-btn">
     ← Back to Home
@@ -20,11 +29,10 @@
 
   <!-- HEADER -->
   <header>
-  <img src="../assets/freefire.png" alt="Booyah Bash Logo" class="main-logo">
-  <h1>Booyah Bash - Free Fire Event </h1>
-  <p>Get ready to drop, loot, and dominate!</p>
-</header>
-
+    <img src="../assets/freefire.png" alt="Booyah Bash Logo" class="main-logo">
+    <h1>Booyah Bash – Free Fire Event</h1>
+    <p>Get ready to drop, loot, and dominate!</p>
+  </header>
 
   <!-- EVENT DETAILS -->
   <section>
@@ -50,18 +58,17 @@
       <h2 style="margin-top:40px;">Rules & Regulations</h2>
 
       <ul>
-        <li><strong>College ID Mandatory:</strong> All players must carry a valid College ID. No ID, no entry.</li>
+        <li><strong>College ID Mandatory:</strong> All players must carry a valid College ID.</li>
         <li><strong>Mobile Only:</strong> Emulators, tablets/iPads, controllers, triggers, or external tools are strictly prohibited.</li>
-        <li><strong>Game Readiness:</strong> All maps and resources must be downloaded before the event to avoid delays.</li>
-        <li><strong>Punctuality:</strong> Teams must join the lobby on time. Late entries will not be entertained.</li>
-        <li><strong>Player Conduct:</strong> Abusive language, misbehavior, or arguments with organizers are not allowed.</li>
-        <li><strong>Fair Play:</strong> Hacks, mods, scripts, GFX tools, or teaming with opponents will lead to immediate team disqualification.</li>
+        <li><strong>Game Readiness:</strong> All maps and resources must be downloaded before the event.</li>
+        <li><strong>Punctuality:</strong> Teams must join the lobby on time.</li>
+        <li><strong>Player Conduct:</strong> Abusive language or arguments with organizers are not allowed.</li>
+        <li><strong>Fair Play:</strong> Hacks, mods, scripts, GFX tools, or teaming will lead to immediate disqualification.</li>
       </ul>
 
       <p style="margin-top:20px; color:#9ca3af; font-size:0.95rem;">
-        <strong>Disclaimer:</strong> Judges’ decisions will be final. Organizers reserve the right to
-        modify rules or schedules in case of technical issues.
-        Non-compliance may result in disqualification without refund.
+        <strong>Disclaimer:</strong> Judges’ decisions are final. Organizers reserve the right
+        to modify rules or schedules. Non-compliance may result in disqualification without refund.
       </p>
 
       <!-- EVENT FORMAT -->
@@ -72,7 +79,7 @@
           <strong>Phase 1 – Qualifiers:</strong>
           36 teams divided into 3 groups (A, B, C), 12 teams per group.
           Each group plays 2 matches (Bermuda + Rotated Map).
-          Top 4 teams from each group qualify based on cumulative score (Placement + Kills).
+          Top 4 teams from each group qualify based on cumulative score.
         </li>
 
         <li>
@@ -82,13 +89,15 @@
         </li>
       </ul>
 
-      <!-- REGISTER BUTTON -->
+      <!-- REGISTER BUTTON WITH LOADING -->
       <div style="text-align:center;">
-        <a 
+        <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSeygXzJ-is95mq0Yug8rRzcpvGULfXUuKmynlqKAHYS03aRsg/viewform"
           target="_blank"
-          class="btn">
-          Register Now
+          class="btn register-btn"
+          onclick="startLoading(this)">
+          <span class="btn-text">Register Now</span>
+          <span class="btn-loader"></span>
         </a>
       </div>
 
@@ -104,15 +113,37 @@
   </footer>
 
   <script>
-  const backBtn = document.querySelector('.back-btn');
+    const backBtn = document.querySelector('.back-btn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      backBtn.classList.add('hide');
-    } else {
-      backBtn.classList.remove('hide');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        backBtn.classList.add('hide');
+      } else {
+        backBtn.classList.remove('hide');
+      }
+    });
+
+    function startLoading(btn) {
+      btn.classList.add("loading");
+
+      setTimeout(() => {
+        window.location.href = btn.href;
+      }, 600);
+
+      return false;
     }
-  });
+  </script>
+<script>
+  (function () {
+    const path = window.location.pathname;
+
+    // Hide .html from URL bar (visual only)
+    if (path.endsWith(".html")) {
+      const cleanPath = path.replace(/index\.html$/, "")
+                            .replace(/\.html$/, "");
+      window.history.replaceState(null, "", cleanPath || "/");
+    }
+  })();
 </script>
 
 </body>
