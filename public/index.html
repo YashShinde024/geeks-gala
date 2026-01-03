@@ -187,9 +187,15 @@
 <script>
   window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
-    setTimeout(() => {
-      loader.classList.add("hide");
-    }, 800); // smooth cinematic delay
+    
+    if (localStorage.getItem("loaderShown")) {
+      loader.style.display = "none";
+    } else {
+      setTimeout(() => {
+        loader.classList.add("hide");
+        localStorage.setItem("loaderShown", "true");
+      }, 800);
+    }
   });
 </script>
 <script>
