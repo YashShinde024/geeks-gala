@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <!-- Favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/assets/site.webmanifest">
-<link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
 
-<!-- Android / PWA -->
-<meta name="theme-color" content="#0f172a">
+  <!-- Android / PWA -->
+  <meta name="theme-color" content="#0f172a">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,8 +54,8 @@
       <h2 style="margin-top:40px;">Team Formation</h2>
 
       <ul>
-        <li>Teams of <strong>exactly 3 participants</strong></li>
-        <li>Total participation limited to <strong>30 teams</strong></li>
+        <li>Teams of <strong>minimum 2 and maximum 3 participants</strong></li>
+        <li>Only the <strong>first 20 registered teams</strong> will be considered</li>
       </ul>
 
       <!-- EVENT FORMAT -->
@@ -110,18 +110,28 @@
         <li>Each team is allowed only <strong>5 attempts</strong> in the Qualifier Round.</li>
         <li><strong>Checkpoint scores are not cumulative.</strong></li>
         <li><strong>Screenshot or volunteer verification</strong> is mandatory.</li>
-        <li><strong>Internet access and personal devices</strong> are allowed.</li>
-        <li>Participants must <strong>create their Roblox account on the spot</strong>,
-            <strong>30 minutes before the event</strong>.</li>
-        <li>Participants may bring their <strong>own laptops</strong>.
-            This must be <strong>clearly specified in the Google registration form</strong>.</li>
-        <li>Any form of <strong>unfair play, cheating, or manipulation</strong> will result in
-            <strong>immediate disqualification</strong>.</li>
-        <li>The decisions of the <strong>judges and organizing committee</strong> are
-            <strong>final and binding</strong>.</li>
+        <li><strong>Laptops as well as mobile phones</strong> are allowed.</li>
+        <li>
+          Teams who wish to use <strong>lab PCs</strong> must <strong>report early</strong>,
+          as systems will be provided on a
+          <strong>First Come, First Served (FCFS)</strong> basis.
+        </li>
+        <li>
+          Participants must <strong>create their Roblox account on the spot</strong>,
+          <strong>30 minutes before the event</strong>.
+        </li>
+        <li>Only the <strong>first 20 registered teams</strong> will be eligible to participate.</li>
+        <li>
+          Any form of <strong>unfair play, cheating, or manipulation</strong>
+          will result in <strong>immediate disqualification</strong>.
+        </li>
+        <li>
+          The decisions of the <strong>judges and organizing committee</strong>
+          are <strong>final and binding</strong>.
+        </li>
       </ul>
 
-      <!-- REGISTER BUTTON WITH LOADING -->
+      <!-- REGISTER BUTTON -->
       <div style="text-align:center; margin-top:40px;">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf130SnC2g0WKanedoFNLL43TzBfU5v99kKTD5q8sU8sLyqoQ/viewform"
            class="btn register-btn"
@@ -142,6 +152,7 @@
     </a>
   </footer>
 
+  <!-- JS -->
   <script>
     const backBtn = document.querySelector('.back-btn');
 
@@ -163,18 +174,18 @@
       return false;
     }
   </script>
-<script>
-  (function () {
-    const path = window.location.pathname;
 
-    // Hide .html from URL bar (visual only)
-    if (path.endsWith(".html")) {
-      const cleanPath = path.replace(/index\.html$/, "")
-                            .replace(/\.html$/, "");
-      window.history.replaceState(null, "", cleanPath || "/");
-    }
-  })();
-</script>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+
+      if (path.endsWith(".html")) {
+        const cleanPath = path.replace(/index\.html$/, "")
+                              .replace(/\.html$/, "");
+        window.history.replaceState(null, "", cleanPath || "/");
+      }
+    })();
+  </script>
 
 </body>
 </html>
