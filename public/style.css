@@ -808,3 +808,19 @@ body::-webkit-scrollbar {
     display: none;
   }
 }
+.rules-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.4rem;
+  color: #38bdf8;
+}
+
+.rules-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.rules-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
